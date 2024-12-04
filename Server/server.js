@@ -29,13 +29,16 @@ server.post('/',async(req,res)=>{
   user.aboutSection = req.body.aboutSection;
   const doc = await user.save();
 
-
-  console.log(doc)
+  // console.log(doc)
   res.json(doc)
 } )
 server.get('/',async(req,res)=>{
   const docs = await User.find({})
   res.json(docs)
+} )
+server.get('/latest',async(req,res)=>{
+  const latestdocs = await User.findOne().sort({_id:-1})
+  res.json(latestdocs)
 } )
 
 server.listen(5001,()=>{

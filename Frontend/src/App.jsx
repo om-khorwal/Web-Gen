@@ -10,6 +10,7 @@ import React, { useEffect, useState } from "react";
      
     });
     const [user , setuser] = useState([]);
+    // const [webdata , updatewebdata] = useState([]);
 
     // useEffect(() => {
     //   axios.get("http://localhost:5000/api/data")
@@ -39,15 +40,26 @@ import React, { useEffect, useState } from "react";
       console.log(result)
       }
 
+
       const getuser = async ()=>{
         const response = await fetch('http://localhost:5001/',{
           method:'GET',
-      
         })
         const data = await response.json();
         setuser(data);
       }
+      // const getweb = async ()=>{
+      //     const response = await fetch('http://localhost:5001/latest',{
+      //       method:'GET',
+      //     })
+      //     const data = await response.json();
+      //     updatewebdata(data);
+    
+      // };
 
+      // useEffect(()=>{
+      //   getweb();
+      // })
       useEffect(()=>{
         getuser();
       })
@@ -80,7 +92,25 @@ import React, { useEffect, useState } from "react";
         </label>
         <br />
 
-        {/* <fieldset>
+      <button type="submit" onClick={submit}>Submit</button>
+      <div>
+        {/* <button onClick={getweb}>Get website</button> */}
+          
+        </div>
+
+    </form>
+    <div>
+      <ul>
+        {user.map(user=><li key={user._id}>{user.sitename},{user.heroSection}, {user.aboutSection}</li>)}
+      </ul>
+    </div>
+    </>
+  );
+}
+export default Webform;
+
+
+        /* <fieldset>
         <legend>Contact Details</legend>
         <label>
           Phone:
@@ -105,20 +135,4 @@ import React, { useEffect, useState } from "react";
             value={formdata.contact.address}
           />
         </label>
-      </fieldset> */}
-
-      <button type="submit" onClick={submit}>Submit</button>
-
-
-    </form>
-    <div>
-      <ul>
-        {user.map(user=><li key={user._id}>{user.sitename},{user.heroSection}, {user.aboutSection}</li>)}
-      </ul>
-    </div>
-    </>
-  );
-}
-
-
-export default Webform;
+      </fieldset> */
