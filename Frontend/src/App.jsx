@@ -48,21 +48,40 @@ import React, { useEffect, useState } from "react";
         const data = await response.json();
         setuser(data);
       }
-      // const getweb = async ()=>{
-      //     const response = await fetch('http://localhost:5001/latest',{
-      //       method:'GET',
-      //     })
-      //     const data = await response.json();
-      //     updatewebdata(data);
-    
-      // };
+      const getweb = async ()=>{
+      const response = await fetch('http://localhost:5001/latest',{
+            method:'GET',
+          })
+          const data = await response.json();
+          // updatewebdata(data);
+          const newWindow = window.open('', '_blank');
+  
+          // Write HTML content to the new window
+          newWindow.document.write(`
+            <html>
+              <head><title>${data.sitename}</title></head>
+              <body>
+                <h1>${data.sitename}</h1>
+                <section>
+                  <h2>Hero Section</h2>
+                  <p>${data.heroSection}</p>
+                </section>
+                <section>
+                  <h2>About Section</h2>
+                  <p>${data.aboutSection}</p>
+                </section>
+              </body>
+            </html>
+          `);
+        
+          // Close the document to render it
+          newWindow.document.close();
+        };        
 
-      // useEffect(()=>{
-      //   getweb();
-      // })
       useEffect(()=>{
         getuser();
       })
+      
     return (
       <>
     <form action="onsubmit">
@@ -94,7 +113,7 @@ import React, { useEffect, useState } from "react";
 
       <button type="submit" onClick={submit}>Submit</button>
       <div>
-        {/* <button onClick={getweb}>Get website</button> */}
+        <button onClick={getweb}>Get website</button>
           
         </div>
 
