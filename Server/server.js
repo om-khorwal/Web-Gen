@@ -5,8 +5,6 @@ const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 require('dotenv').config()
 
-
-
 main().catch(err => console.log(err));
 
 async function main() {
@@ -21,25 +19,27 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema)
 server.use(cors({
-  origin: ['http://localhost:3000', 'https://web-gen-frontend-five.vercel.app/'], }));
+  origin: ['http://localhost:3000', 'https://web-gen-frontend-five.vercel.app'],
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'] }));
+
 server.use(bodyParser.json())
 
 
-server.post('https://web-gen-nu.vercel.app/',async(req,res)=>{
+server.post('/',async(req,res)=>{
   let user = new User();
   user.sitename = req.body.sitename;
   user.heroSection = req.body.heroSection;
   user.aboutSection = req.body.aboutSection;
   const doc = await user.save();
-
   // console.log(doc)
   res.json(doc)
 } )
-server.get('https://web-gen-nu.vercel.app/',async(req,res)=>{
+server.get('/',async(req,res)=>{
   const docs = await User.find({})
   res.json(docs)
 } )
-server.get('https://web-gen-nu.vercel.app/',async(req,res)=>{
+server.get('/latest',async(req,res)=>{
   const latestdocs = await User.findOne().sort({_id:-1})
   res.json(latestdocs)
 } )
