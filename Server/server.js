@@ -25,7 +25,7 @@ server.use(cors({
 server.use(bodyParser.json())
 
 
-server.post('/',async(req,res)=>{
+server.post('https://web-gen-nu.vercel.app/',async(req,res)=>{
   let user = new User();
   user.sitename = req.body.sitename;
   user.heroSection = req.body.heroSection;
@@ -35,11 +35,11 @@ server.post('/',async(req,res)=>{
   // console.log(doc)
   res.json(doc)
 } )
-server.get('/',async(req,res)=>{
+server.get('https://web-gen-nu.vercel.app/',async(req,res)=>{
   const docs = await User.find({})
   res.json(docs)
 } )
-server.get('/latest',async(req,res)=>{
+server.get('https://web-gen-nu.vercel.app/',async(req,res)=>{
   const latestdocs = await User.findOne().sort({_id:-1})
   res.json(latestdocs)
 } )
