@@ -29,7 +29,7 @@ import React, { useEffect, useState } from "react";
 
     const submit=async(e)=>{
       e.preventDefault();
-      const response = await fetch('http://localhost:5001/',{
+      const response = await fetch('https://web-gen-nu.vercel.app/',{
         method:'POST',
         body:JSON.stringify(formdata),
         headers:{
@@ -42,14 +42,14 @@ import React, { useEffect, useState } from "react";
 
 
       const getuser = async ()=>{
-        const response = await fetch('http://localhost:5001/',{
+        const response = await fetch('https://web-gen-nu.vercel.app/',{
           method:'GET',
         })
         const data = await response.json();
         setuser(data);
       }
       const getweb = async ()=>{
-      const response = await fetch('http://localhost:5001/latest',{
+      const response = await fetch('https://web-gen-nu.vercel.app/',{
             method:'GET',
           })
           const data = await response.json();
@@ -57,7 +57,7 @@ import React, { useEffect, useState } from "react";
           const newWindow = window.open('', '_blank');
   
           // Write HTML content to the new window
-          newWindow.document.write(`
+          window.open('', '_blank').document.write(`
             <html>
               <head><title>${data.sitename}</title></head>
               <body>
