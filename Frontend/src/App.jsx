@@ -42,14 +42,14 @@ import React, { useEffect, useState } from "react";
 
 
       const getuser = async ()=>{
-        const response = await fetch('/',{
+        const response = await fetch('https://web-gen-nu.vercel.app/',{
           method:'GET',
         })
         const data = await response.json();
         setuser(data);
       }
       const getweb = async ()=>{
-      const response = await fetch('/latest',{
+      const response = await fetch('https://web-gen-nu.vercel.app/latest',{
             method:'GET',
           })
           const data = await response.json();
