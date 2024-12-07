@@ -26,7 +26,7 @@ server.use(cors({
 server.use(bodyParser.json())
 
 
-server.post('https://web-gen-nu.vercel.app',async(req,res)=>{
+server.post('/',async(req,res)=>{
   let user = new User();
   user.sitename = req.body.sitename;
   user.heroSection = req.body.heroSection;
