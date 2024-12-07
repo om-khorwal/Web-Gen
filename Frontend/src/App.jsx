@@ -29,7 +29,7 @@ import React, { useEffect, useState } from "react";
 
     const submit=async(e)=>{
       e.preventDefault();
-      const response = await fetch('https://web-gen-backend-nine.vercel.ap',{
+      const response = await fetch('https://web-gen-backend-nine.vercel.app',{
         method:'POST',
         body:JSON.stringify(formdata),
         headers:{
@@ -42,14 +42,14 @@ import React, { useEffect, useState } from "react";
 
 
       const getuser = async ()=>{
-        const response = await fetch('https://web-gen-9vesbackend.vercel.app/',{
+        const response = await fetch('https://web-gen-backend-nine.vercel.app/',{
           method:'GET',
         })
         const data = await response.json();
         setuser(data);
       }
       const getweb = async ()=>{
-      const response = await fetch('https://web-gen-9vesbackend.vercel.app/latest',{
+      const response = await fetch('https://web-gen-backend-nine.vercel.app/latest',{
             method:'GET',
           })
           const data = await response.json();
