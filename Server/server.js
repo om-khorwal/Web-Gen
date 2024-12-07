@@ -3,12 +3,13 @@ const cors = require('cors')
 const server = express()
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
-require('dotenv').config()
+require('dotenv').config();
 
 main().catch(err => console.log(err));
 
 async function main() {
   await mongoose.connect(process.env.MONGO_URL);
+  console.log("MongoDB URI:", process.env.MONGO_URL);
   console.log("db connect")
 }
 const userSchema = new mongoose.Schema({
