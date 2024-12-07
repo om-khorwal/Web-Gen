@@ -29,7 +29,7 @@ import React, { useEffect, useState } from "react";
 
     const submit=async(e)=>{
       e.preventDefault();
-      const response = await fetch('https://web-gen-9vesbackend.vercel.app',{
+      const response = await fetch('https://web-gen-backend-nine.vercel.ap',{
         method:'POST',
         body:JSON.stringify(formdata),
         headers:{
