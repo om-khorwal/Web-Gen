@@ -24,13 +24,12 @@ function Inputs() {
     const response = await fetch('https://web-gen-backend-nine.vercel.app/', {
         method: 'POST',
         body: JSON.stringify(formdata),
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        headers: {'Content-Type': 'application/json' }
     })
     const result = await response.json();
     console.log(result)
-}
+  }
+  
 const [user, setuser] = useState([]);
   const getuser = async () => {
     const response = await fetch('https://web-gen-backend-nine.vercel.app/', {
@@ -42,6 +41,7 @@ const [user, setuser] = useState([]);
   useEffect(() => {
     getuser();
   },[]);
+
 const getweb = async () => {
     const response = await fetch('https://web-gen-backend-nine.vercel.app/latest', {
         method: 'GET',
@@ -68,7 +68,6 @@ const getweb = async () => {
             </html>
           `);
 
-    // Close the document to render it
     newWindow.document.close();
 };
 
