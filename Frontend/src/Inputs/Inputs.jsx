@@ -29,7 +29,7 @@ function Inputs() {
     const result = await response.json();
     console.log(result)
   }
-  
+
 const [user, setuser] = useState([]);
   const getuser = async () => {
     const response = await fetch('https://web-gen-backend-nine.vercel.app/', {
@@ -51,7 +51,7 @@ const getweb = async () => {
     const newWindow = window.open('', '_blank');
 
     // Write HTML content to the new window
-    window.open('', '_blank').document.write(`
+    newWindow.document.write(`
             <html>
               <head><title>${data.sitename}</title></head>
               <body>

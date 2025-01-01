@@ -68,7 +68,7 @@ server.get('/latest',async(req,res)=>{
       </html>
     `;
 
-    res.json({ success: true, websiteHTML });
+    res.json({ success: true, websiteHTML, sitename, heroSection, aboutSection, });
     console.log("HTML generated successfully");
   } catch (err) {
     console.error("Error generating website:", err);
