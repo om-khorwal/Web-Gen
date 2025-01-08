@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema)
 server.use(cors({
-  origin: ['*', 'https://web-gen-frontend-five.vercel.app', 'http://localhost:3002'],
+  origin: ['*', 'https://web-gen-frontend-five.vercel.app', 'http://localhost:3000'],
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type'] }));
 
